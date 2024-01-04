@@ -4,3 +4,4 @@
 ./.terraform
 # Exclude specific file
 .terraform/providers/registry.terraform.io/hashicorp/aws/5.31.0/windows_amd64/terraform-provider-aws_v5.31.0_x5.exe
+.env

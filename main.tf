@@ -2,8 +2,8 @@
 
 provider "aws" {
   region = "us-east-1"
-  access_key = "AKIA4MTWMO4EZIVGYM7A"
-  secret_key = "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"
+  access_key = ""
+  secret_key = ""
 }
 
 # retrieve list of AZs(Availability Zones) in the region
