@@ -1,7 +1,7 @@
 # configure for AWS Provider
 
 provider "aws" {
-  region = "us-east-1"
+  region     = "us-east-1"
   access_key = ""
   secret_key = ""
 }
@@ -111,5 +111,25 @@ resource "aws_nat_gateway" "nat_gateway" {
   subnet_id     = aws_subnet.public_subnets["public_subnet_1"].id
   tags = {
     Name = "demo-nat-gateway"
+  }
+}
+
+# Terraform data block to lookup latest ubuntu
+data "aws_ami" "ubuntu" {
+  most_recent = true
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+  }
+  owners = ["099720109477"]
+}
+
+# Terraform resource block to build EC2 instance in the public subnet
+resource "aws_instance" "webserver" {
+  ami           = data.aws_ami.ubuntu.id
+  instance_type = "t2.micro"
+  subnet_id     = aws_subnet.public_subnets["public_subnet_1"].id
+  tags = {
+    Name = "Ubuntu EC2 Server"
   }
 }
