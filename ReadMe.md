@@ -32,3 +32,5 @@ to retrieve security and operating system updates.
 4. Run Terraform Plan To Get High Level Overview Of Resources - `terraform plan`
 5. Now Apply Terraform Changes - `terraform apply -auto-approve`
 6. To Destroy Allocated Resources - `terraform destroy -auto-approve`
+7. Show less complicated detailed resources - `terraform state list`
+8. Show more detailed resources - `terraform show`
