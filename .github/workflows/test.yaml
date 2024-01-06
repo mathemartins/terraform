@@ -1,0 +1,25 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - terraform-basics-resource
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2  # Action to check out the repository's code
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2  # Action to set up Node.js environment
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install  # Command to install project dependencies
+
+      - name: Run tests
+        run: npm test  # Command to run tests
