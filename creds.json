@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "jetbinder",
+  "private_key_id": "0cbd24d43683a8e105491cfe88ce50f0fc94fd84",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC2lGuH0EJ63ocb\nAljLzkMfzDgyF5mKq9OJXFikjBi5ZCU+JXZ68N6IAWZGA7EmeFyw42YVGkUref7x\n6ld4fnqbQzgx1enfBQkc3h9WTcfWp/kzdUhEfGdp2IGS6uXZTbbA6SYnueampRjk\nq70DVIyH0Q5+HR31HpTf9JhKMXwi35leqhlnRN5slPE0smFb1SkCWSYWGw/pjU0G\nGHwCQhwuflHAIJRw6P0PCBGDIyO0JDoS/BCeQ9L2i7ne02GIjhaacbMWFcWh/S2F\nhqWFoy1f/LBqaPEAuwPjiy/gRejXacLls7jyYpCaaIpMt4req7MqjgPOHjvpy1BW\nxI1N1bELAgMBAAECggEABWkEfrPHJIjvi/dX1kI4bvrIN4PHgvpwfEOGROn52ZSE\nHgFSL3Zvwav48d4uI6uxY3R5k+qBXjZxPY3qJaHp1Cv7wE5MbdViXb6fQxlu8Idt\ntP6ms5DUJ6jIvifDw9qvrau6+7ZghVOjFzOXmD+rImMpgMcwGhFb6/79fEVXHllg\n/LDz0RKv++Lo0ofBisQzlHyjU17iJ4u8FoQIMrujtAgZNt+u2ZRpARWRLFUFfJrF\nJApawAM+YeMkr2CTyqYuRlfHNqVRyNzn2AvXlPOpBUifVY2YcCV0gFysDiSEJO2B\n1u2WFb32Q4Mg0C8b2oMxbdCe0aJdxl7UQFglff0wAQKBgQDuGyIPqw5GuoO4sfiT\nsi3vctJbyql4V0M9oEx6DQMh6jqbp3+Dx1HXAJzJ1fr/Ih9lo5WC0BCFhypc9JtZ\nvDUz7qAH7lFqGaZXg/eiGuJPWDI7XtNfpQnC3EY55JO2gtJiBDP1SgMCeaXModBW\n3mlbJ80yQ62QkR/urfwrLcPUAQKBgQDETQfW2SXX8xHrEpmhCadxXOC31p8AciOd\nu7rGzO37Gdf6x5JWXLQSnPng3itUmmvy6UV+dzK5HfnwOWjqG7VNpG4RqFsbLdFW\niiskASGhAPutcTqcdyAp2ggA8uuiMISO9iOeTv296ssieI6c+2Akuwj5UVYedmG+\nC1V0kAeVCwKBgB5L/4qE1n0zcF1I7/tDGcs1DgU2BVhVqi2mPvTswPBI0IpLxtLq\nwsQbxNd9zcE3A024geayONf0ufQ3/6hsZUylWWGI9n0MpHjQRusuhotYCpQ5XaX2\n5wYPZzQonI8FmGV2aXIVp8ph1jHyiQL0q+04ZEi4CdayUKDbLJIF8bwBAoGAXFjc\nuj83pWrtYAhFC9RN2G/YK8Qk0wHfLYI2cPXRcxKKX6jpeAVulV8R0q7R9aAb7o+9\nKKyMyTeH8HIhoBje5yLWwSnRimy4kZy4hNyfZG3g+IxPBXKpR+cRYtjk700h31t+\nECibCHBfldzfQoyjg0QWCaww9m28t7n/PrHPT1cCgYBTEzhsBGlQgPtZt2vVKOoY\nAC5IDuNp6CY6dd8CxRiF25arqM3Lz/WPfKLTcgsj12md4EioE5114kIXazRtzw3n\nfVDVFOFrKuIZSBgh/eq6rFkYB2Fuf8xQstr97xVIwuKGmKTxkOSlRbhpyyPmFl5i\nJdlkgEEgoycfoKaCgdqwZw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "jetbinder-service-account@jetbinder.iam.gserviceaccount.com",
+  "client_id": "107445749779511720897",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/jetbinder-service-account%40jetbinder.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
