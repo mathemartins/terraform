@@ -4,6 +4,7 @@
 #  <IDENTIFIER> = <EXPRESSION>
 #}
 
-resource "random_string" "random" {
-  length = 10
-}
+#resource "random_string" "random" {
+#  length = 10
+#}
+
