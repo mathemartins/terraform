@@ -10,6 +10,13 @@ provider "aws" {
 data "aws_availability_zones" "available" {}
 data "aws_region" "current" {}
 
+# locals block for constants to be retrieved
+locals {
+  team        = "api_mgmt_dev"
+  application = "jetbinder"
+  server_name = "ec2-${var.environment}-api-${var.subnet_availability_zone}"
+}
+
 # define vpc - virtual private cloud
 resource "aws_vpc" "vpc" {
   cidr_block = var.vpc_cidr
@@ -130,7 +137,9 @@ resource "aws_instance" "webserver" {
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.public_subnets["public_subnet_1"].id
   tags = {
-    Name = "Ubuntu EC2 Server"
+    Name        = local.server_name
+    Team        = local.team
+    Application = local.application
   }
 }
 
