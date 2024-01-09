@@ -1,0 +1,38 @@
+name: Provision Infrastructure
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.6.4
+
+      - name: Terraform Init
+        run: |
+          terraform init \
+          -backend-config="bucket=my-terraform-state-bucket" \
+          -backend-config="key=path/to/terraform.tfstate" \
+          -backend-config="region=your-aws-region" \
+          -backend-config="encrypt=true" \
+          -backend-config="dynamodb_table=my-lock-table-name"
+          # Add additional configurations as needed
+
+      - name: Terraform Validate
+        run: terraform validate
+
+      - name: Terraform Plan
+        run: terraform plan -out=tfplan
+
+      - name: Terraform Apply
+        run: terraform apply -auto-approve tfplan
