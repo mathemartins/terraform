@@ -1,4 +1,9 @@
-# configure for AWS Provider
+/*
+  Name: AWS Terraform Infrastructure Buildout
+  Description: The buildout of our infrastructure on AWS
+  Author: Alphador
+  Contributors: Alphador and Mathemartins
+*/
 
 provider "aws" {
   region     = "us-east-1"

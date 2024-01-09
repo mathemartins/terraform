@@ -47,3 +47,5 @@ It's a fantastic way to visualize and understand the workings of AWS infrastruct
 6. To Destroy Allocated Resources - `terraform destroy -auto-approve`
 7. Show less complicated detailed resources - `terraform state list`
 8. Show more detailed resources - `terraform show`
+9. To show the outputs of various modules in json format - `terraform output -json`
+10. To show sensitive data, when you mark them as sensitive in your outputs.tf - `terrform output`
