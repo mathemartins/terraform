@@ -46,6 +46,9 @@ It's a fantastic way to visualize and understand the workings of AWS infrastruct
 5. Now Apply Terraform Changes - `terraform apply -auto-approve`
 6. To Destroy Allocated Resources - `terraform destroy -auto-approve`
 7. Show less complicated detailed resources - `terraform state list`
-8. Show more detailed resources - `terraform show`
-9. To show the outputs of various modules in json format - `terraform output -json`
-10. To show sensitive data, when you mark them as sensitive in your outputs.tf - `terrform output`
+8. Show terraform state for a particular resource example: ubuntu server - `terraform state show <resource> | terraform state show aws_instance.webserver`
+9. Show more detailed resources - `terraform show`
+10. To show the outputs of various modules in json format - `terraform output -json`
+11. To show sensitive data, when you mark them as sensitive in your outputs.tf - `terrform output`
+12. To shell into the vm or ec2 or compute instance - `ssh -i <RSAKey.pem> <username>@<public_ip>`
+13. To execute shell command on the system locally on windows - `icacls <MyAWSKey.pem> /inheritance:r /grant:r "<Hp user>:(R)"`

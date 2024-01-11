@@ -139,9 +139,41 @@ data "aws_ami" "ubuntu" {
 
 # Terraform resource block to build EC2 instance in the public subnet
 resource "aws_instance" "webserver" {
-  ami           = data.aws_ami.ubuntu.id
-  instance_type = "t2.micro"
-  subnet_id     = aws_subnet.public_subnets["public_subnet_1"].id
+  ami                         = data.aws_ami.ubuntu.id
+  instance_type               = "t2.micro"
+  subnet_id                   = aws_subnet.public_subnets["public_subnet_1"].id
+  security_groups             = [aws_security_group.ingress_ssh.id, aws_security_group.vpc_web.id]
+  associate_public_ip_address = true
+  key_name                    = aws_key_pair.tls_generated_key.key_name
+
+  connection {
+    user        = "ubuntu"
+    private_key = tls_private_key.tls_key.private_key_pem
+    host        = self.public_ip
+  }
+
+  # @TODO: local-exec does not need permission to change the mod file for the executable because terraform makes it exec
+  # @TODO: by default so it runs automatically without machine dependency
+  #  provisioner "local-exec" {
+  #    #    command = "chmod 600 ${local_file.private_key_pem.filename}"
+  #    command = "powershell.exe -Command \"icacls '${local_file.private_key_pem.filename}' /inheritance:r /grant:r '\"\"\"Hp user\"\"\":(R)'\""
+  #
+  #
+  #  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "sudo rm -rf /tmp",
+      "sudo git clone https://github.com/hashicorp/demo-terraform-101 /tmp",
+      "sudo sh /tmp/assets/setup-web.sh"
+    ]
+  }
+
+  lifecycle {
+    ignore_changes = [security_groups]
+  }
+
+
   tags = {
     Name        = local.server_name
     Team        = local.team
@@ -196,3 +228,63 @@ resource "aws_subnet" "variables_subnet" {
     Terraform = true
   }
 }
+
+# generating RSA private key
+resource "tls_private_key" "tls_key" {
+  algorithm = "RSA"
+}
+
+resource "local_file" "private_key_pem" {
+  content  = tls_private_key.tls_key.private_key_pem
+  filename = "MyAWSKey.pem"
+}
+
+resource "aws_key_pair" "tls_generated_key" {
+  key_name   = "MyAWSKey"
+  public_key = tls_private_key.tls_key.public_key_openssh
+  lifecycle {
+    ignore_changes = [key_name]
+  }
+}
+
+resource "aws_security_group" "ingress_ssh" {
+  name   = "allow-all-ssh"
+  vpc_id = aws_vpc.vpc.id
+  ingress {
+    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+  }
+
+  // Terraform remove the default egress rule
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+resource "aws_security_group" "vpc_web" {
+  name        = "vpc-web-${terraform.workspace}"
+  vpc_id      = aws_vpc.vpc.id
+  description = "Web Traffic"
+
+  ingress {
+    cidr_blocks = ["0.0.0.0/0"]
+    protocol    = "tcp"
+    from_port   = 80
+    to_port     = 80
+    description = "Allow port 80"
+  }
+
+  ingress {
+    cidr_blocks = ["0.0.0.0/0"]
+    protocol    = "tcp"
+    from_port   = 443
+    to_port     = 443
+    description = "Allow port 80"
+  }
+}
+
