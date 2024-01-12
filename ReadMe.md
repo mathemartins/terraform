@@ -52,3 +52,8 @@ It's a fantastic way to visualize and understand the workings of AWS infrastruct
 11. To show sensitive data, when you mark them as sensitive in your outputs.tf - `terrform output`
 12. To shell into the vm or ec2 or compute instance - `ssh -i <RSAKey.pem> <username>@<public_ip>`
 13. To execute shell command on the system locally on windows - `icacls <MyAWSKey.pem> /inheritance:r /grant:r "<Hp user>:(R)"`
+14. To mark a resource for recreation or re-provisioning - `terraform taint <aws_instance>.<resource_name>`
+15. Terraform can automatically mark a resource as tainted if the remote exec provisioner or another provisioner throws an error
+16. Terraform also support and untaint a resource - `terraform untaint <aws_instance>.<resource_name>`
+17. Better alternatives to taint - `terraform apply -replace="<aws_instance>.<resource_name>"`
+18. 
