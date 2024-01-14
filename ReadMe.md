@@ -56,4 +56,9 @@ It's a fantastic way to visualize and understand the workings of AWS infrastruct
 15. Terraform can automatically mark a resource as tainted if the remote exec provisioner or another provisioner throws an error
 16. Terraform also support and untaint a resource - `terraform untaint <aws_instance>.<resource_name>`
 17. Better alternatives to taint - `terraform apply -replace="<aws_instance>.<resource_name>"`
-18. 
+18. To use terraform import, is when a resource was not provisioned with terraform, and we want to manage that resource we will use the 
+`terraform import <aws_instance>.<resource_name> <resource_id>` but first we need to create an empty resource block and after
+that we need to use `terraform show list` to confirm it's been registered in our list of terraform state management files
+then we run the `terraform state show <resource>` and manually update the empty resource block with the basic config codes to proceed
+with handling it perfectly
+19. 
