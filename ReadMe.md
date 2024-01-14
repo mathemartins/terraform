@@ -61,4 +61,8 @@ It's a fantastic way to visualize and understand the workings of AWS infrastruct
 that we need to use `terraform show list` to confirm it's been registered in our list of terraform state management files
 then we run the `terraform state show <resource>` and manually update the empty resource block with the basic config codes to proceed
 with handling it perfectly
-19. 
+19. terraform workspaces helps you move resources or replicate them in various environment or different regions in the cloud
+service provider `terraform workspace show` shows the list of workspaces available or created which if none is created it would
+return default
+20. `terraform workspace new` creates new workspace that would enable you set a new region for it and it has its own state and state file
+21. 
