@@ -65,4 +65,7 @@ with handling it perfectly
 service provider `terraform workspace show` shows the list of workspaces available or created which if none is created it would
 return default
 20. `terraform workspace new` creates new workspace that would enable you set a new region for it and it has its own state and state file
-21. 
+21. `terraform state -help` gives you all the state commands and helps you know which to use and modify the state file
+22. `windows - $env:TF_LOG="TRACE" | macOS - export TF_LOG=TRACE` this helps turns on terraform logs for any terraform cli command
+23. `windows - $env:TF_LOG_PATH="tf_logs.txt" | macOS - export TF_LOG_PATH="tf_logs.txt"` this helps save the logs to a file
+24. `windows - $env:TF_LOG="" | macOS - export TF_LOG="" | $env:TF_LOG_PATH=""` this turns off debugging logs
